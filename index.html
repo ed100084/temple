@@ -22,11 +22,14 @@
       <span class="seal" aria-hidden="true">天后</span>
       <span class="brand-name">角宿天后宮<small>高雄・燕巢</small></span>
     </a>
-    <nav class="nav" aria-label="主選單">
+    <button type="button" class="menu-btn" aria-expanded="false" aria-controls="nav"><span class="bars" aria-hidden="true"></span>選單</button>
+    <nav class="nav" id="nav" aria-label="主選單">
+      <a href="#calendar">近期行事</a>
       <a href="#nanlu">南路媽</a>
       <a href="#history">沿革</a>
       <a href="#relics">古物</a>
       <a href="#gods">奉祀神明</a>
+      <a href="#services">服務</a>
       <a href="#visit">參拜資訊</a>
     </nav>
     <div class="size" role="group" aria-label="字體大小">
@@ -81,10 +84,30 @@
         <a class="btn primary" href="#visit">參拜資訊</a>
         <a class="btn ghost" href="#nanlu">認識本宮</a>
       </p>
+      <p class="today" id="today" aria-live="polite" hidden></p>
     </div>
   </section>
 
+  <!-- 快捷服務：參考大型廟宇官網首頁的常用功能入口 -->
+  <nav class="quick wrap" aria-label="常用服務">
+    <a href="#visit"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 44s14-13 14-24a14 14 0 0 0-28 0c0 11 14 24 14 24z"/><circle cx="24" cy="20" r="5"/></svg><span>交通導航</span></a>
+    <a href="#calendar"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="7" y="10" width="34" height="30" rx="3"/><path d="M7 19h34M16 6v8M32 6v8"/><circle cx="24" cy="29" r="3"/></svg><span>近期行事</span></a>
+    <a href="#services"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 6c5 7 8 12 8 17a8 8 0 0 1-16 0c0-5 3-10 8-17z"/><path d="M14 42h20M18 36h12"/></svg><span>光明燈</span></a>
+    <a href="tel:+88676161614"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M14 6l6 9-4 4c2 5 6 9 11 11l4-4 9 6-3 7C23 39 9 25 7 11z"/></svg><span>來電洽詢</span></a>
+  </nav>
+
   <p class="notice wrap" role="note">網站建置中。沿革、神明與服務內容整理自公開資料，正式內容以本宮公告為準。</p>
+
+  <section class="sec" id="calendar" aria-labelledby="cal-t">
+    <div class="wrap">
+      <p class="eyebrow">近期行事</p>
+      <h2 id="cal-t">農曆節日與祭典</h2>
+      <ol class="events" id="events">
+        <li class="event"><span class="ev-date"><b>三月廿三</b><small>農曆</small></span><div><h3>天上聖母聖誕</h3><p>媽祖聖誕，各地友宮與信眾前來祝壽。</p></div></li>
+      </ol>
+      <p class="muted small">日期依農曆推算；本宮活動實際時間以現場公告為準。</p>
+    </div>
+  </section>
 
   <section class="sec" id="nanlu" aria-labelledby="nanlu-t">
     <div class="wrap two">
@@ -183,11 +206,18 @@
 </main>
 
 <footer class="foot">
-  <div class="wrap">
-    <p class="foot-name">高雄市燕巢區角宿天后宮管理委員會</p>
-    <p>824 高雄市燕巢區角宿路 6-1 號・07-616-1614</p>
-    <p class="small muted-light">沿革與古物資料整理自公開文獻與網路資料，正式內容以本宮公告為準。</p>
+  <div class="wrap foot-in">
+    <div>
+      <p class="foot-name">高雄市燕巢區角宿天后宮管理委員會</p>
+      <p>824 高雄市燕巢區角宿路 6-1 號</p>
+      <p>電話 <a href="tel:+88676161614">07-616-1614</a></p>
+    </div>
+    <nav class="foot-nav" aria-label="頁尾連結">
+      <a href="#nanlu">認識本宮</a><a href="#calendar">近期行事</a><a href="#services">服務項目</a><a href="#visit">參拜資訊</a>
+    </nav>
   </div>
+  <p class="wrap small muted-light foot-note">沿革與古物資料整理自公開文獻與網路資料，正式內容以本宮公告為準。</p>
 </footer>
+<a class="to-top" href="#top" aria-label="回到頁首" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 15l6-6 6 6"/></svg></a>
 </body>
 </html>
