@@ -1,0 +1,136 @@
+/* 角宿天后宮官網 — 南路媽祖廟・古匾石刻
+   色彩沿用帳務系統（硃砂、祈福金、深木），另取琉璃橘金與壽字藍 */
+:root{
+  --wood:#2b211b; --wood-7:#4a3a2f; --cinnabar:#9e2b25; --cinnabar-d:#7d201b;
+  --gold:#a77b2c; --gold-2:#e8d6b0; --glaze:#d9952f; --shou:#1f4e79; --shou-d:#16385a;
+  --paper:#f8f5ef; --paper-2:#efe8dc; --stone:#e9e1d8; --white:#fffdf9; --line:#e2d9cc;
+  --ink:#2b241f; --muted:#5f554b;
+  --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --serif:"Noto Serif TC","Songti TC","PMingLiU","MingLiU",serif;
+  --base:19px; --tap:52px; --r:14px;
+}
+html[data-size="1"]{--base:17px} html[data-size="3"]{--base:22px}
+*{box-sizing:border-box}
+html{font-size:var(--base);scroll-behavior:smooth;scroll-padding-top:5rem}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.8;letter-spacing:.03em}
+/* 花崗石般的細點紋理 */
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;
+  background-image:radial-gradient(#8a7a6a22 1px,transparent 1.2px),radial-gradient(#8a7a6a14 1px,transparent 1.2px);
+  background-size:7px 7px,11px 11px;background-position:0 0,3px 5px}
+h1,h2,h3{font-family:var(--serif);color:var(--wood);letter-spacing:.12em;line-height:1.4}
+h2{font-size:1.9rem;margin:.1em 0 .6em}
+h3{font-size:1.15rem;margin:.2em 0 .3em}
+p{margin:.4em 0}
+a{color:var(--shou)}
+:focus-visible{outline:3px solid var(--glaze);outline-offset:3px}
+.wrap{width:min(1100px,100% - 2.4rem);margin-inline:auto}
+.small{font-size:.88rem} .muted{color:var(--muted)}
+.skip{position:absolute;left:-999px;top:8px;z-index:50;background:var(--wood);color:#fff;padding:.6em 1em;border-radius:8px}
+.skip:focus{left:12px}
+.eyebrow{margin:0;color:var(--cinnabar);font-weight:700;letter-spacing:.35em;font-size:.88rem}
+.eyebrow.light{color:var(--gold-2)}
+
+/* 頂列 */
+.top{position:sticky;top:0;z-index:20;background:#fffdf9ee;backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.top::after{content:"";display:block;height:3px;background:linear-gradient(90deg,var(--cinnabar),var(--glaze) 50%,var(--shou))}
+.top-in{display:flex;align-items:center;gap:1rem;min-height:4.2rem}
+.brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;color:var(--wood)}
+.seal{display:grid;place-items:center;width:2.4rem;height:2.4rem;background:var(--cinnabar);color:#fff;border-radius:6px;font-family:var(--serif);font-size:.82rem;line-height:1;writing-mode:vertical-rl;letter-spacing:.1em;box-shadow:inset 0 0 0 2px #ffffff55}
+.brand-name{font-family:var(--serif);font-weight:700;font-size:1.2rem;letter-spacing:.15em;line-height:1.2}
+.brand-name small{display:block;font-family:var(--sans);font-weight:400;font-size:.75rem;color:var(--muted);letter-spacing:.3em}
+.nav{display:flex;gap:.2rem;margin-left:auto}
+.nav a{display:flex;align-items:center;min-height:44px;padding:0 .7em;border-radius:8px;text-decoration:none;color:var(--wood-7);font-weight:700}
+.nav a:hover{background:var(--paper-2);color:var(--cinnabar)}
+.size{display:flex;gap:2px;border:1px solid var(--line);border-radius:10px;padding:2px;background:var(--white)}
+.size button{min-width:44px;min-height:44px;border:0;border-radius:8px;background:transparent;color:var(--wood-7);font:inherit;font-weight:700;cursor:pointer}
+.size button[data-size="1"]{font-size:.8rem} .size button[data-size="3"]{font-size:1.15rem}
+.size button[aria-pressed="true"]{background:var(--cinnabar);color:#fff}
+
+/* 主視覺 */
+.hero{position:relative;min-height:min(78vh,620px);display:flex;align-items:flex-start;overflow:hidden;color:#fff;background:var(--shou-d)}
+.hero-sky{position:absolute;inset:0;width:100%;height:100%}
+.hero-text{position:relative;padding:3.2rem 0 0}
+.hero h1{color:#fff;font-size:clamp(2.6rem,7vw,4.4rem);letter-spacing:.3em;margin:.1em 0 0;text-shadow:0 2px 12px #0006}
+.lead{font-family:var(--serif);font-size:clamp(1.15rem,2.6vw,1.5rem);letter-spacing:.3em;color:var(--gold-2);margin:.2em 0 1.2em}
+.hero-actions{display:flex;flex-wrap:wrap;gap:.8rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:var(--tap);padding:0 1.5em;border-radius:10px;font-weight:700;letter-spacing:.12em;text-decoration:none}
+.btn.primary{background:var(--cinnabar);color:#fff;box-shadow:0 2px 0 var(--cinnabar-d)}
+.btn.primary:hover{background:var(--cinnabar-d)}
+.btn.ghost{color:#fff;border:1.5px solid #ffffffaa}
+.btn.ghost:hover{background:#ffffff1a}
+.notice{margin-top:1.2rem;padding:.7em 1em;background:#fff4dc;border-left:5px solid var(--glaze);border-radius:8px;color:#6a4500;font-size:.92rem}
+
+/* 區塊 */
+.sec{padding:3.6rem 0}
+.sec.alt{background:linear-gradient(#efe8dccc,#efe8dccc)}
+.two{display:grid;grid-template-columns:1.4fr 1fr;gap:2.4rem;align-items:start}
+.card{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:1.4rem 1.6rem;box-shadow:0 1px 2px #2b211b0f,0 8px 28px #2b211b0d}
+.name-card{border-top:5px solid var(--shou)}
+.mini-stars{width:7rem;color:var(--shou);display:block;margin-bottom:.4rem}
+
+/* 壽字紋分隔線（幾何化圓壽） */
+.divider{display:flex;align-items:center;gap:1rem;width:min(1100px,100% - 2.4rem);margin:0 auto;color:var(--gold)}
+.divider::before,.divider::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold-2),transparent)}
+.shou{width:2.6rem;height:2.6rem;border-radius:50%;background:
+  linear-gradient(var(--gold),var(--gold)) center/62% 2px no-repeat,
+  linear-gradient(var(--gold),var(--gold)) center 30%/46% 2px no-repeat,
+  linear-gradient(var(--gold),var(--gold)) center 70%/46% 2px no-repeat,
+  linear-gradient(var(--gold),var(--gold)) center/2px 70% no-repeat;
+  box-shadow:inset 0 0 0 2px var(--gold),0 0 0 4px var(--paper),0 0 0 5px var(--gold-2)}
+
+/* 沿革 */
+.timeline{list-style:none;margin:1rem 0 0;padding:0;border-left:3px solid var(--gold-2);margin-left:.6rem}
+.timeline li{position:relative;display:grid;grid-template-columns:9rem 1fr;gap:1rem;padding:0 0 1.6rem 1.6rem}
+.timeline li::before{content:"";position:absolute;left:-.62rem;top:.45rem;width:1rem;height:1rem;border-radius:50%;background:var(--cinnabar);box-shadow:0 0 0 4px var(--paper)}
+.when{font-family:var(--serif);font-weight:700;color:var(--cinnabar);letter-spacing:.08em}
+.tbd{display:inline-block;margin-left:.4em;padding:0 .6em;border-radius:1em;background:#fff4dc;color:#6a4500;font-style:normal;font-size:.82rem;font-weight:700}
+
+/* 古物：匾額樣式 */
+.relics{list-style:none;padding:0;margin:1.4rem 0 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(12rem,1fr));gap:1.2rem}
+.relic{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:1.4rem 1.2rem 1.2rem;text-align:center}
+.plaque{display:inline-block;padding:.5em 1.1em;background:var(--cinnabar-d);color:#f6e2b0;font-family:var(--serif);font-size:1.25rem;letter-spacing:.3em;border:3px solid var(--glaze);border-radius:4px;box-shadow:inset 0 0 0 2px var(--cinnabar-d),inset 0 0 0 3px #f6e2b066}
+.year{margin-top:.8em;font-weight:700;color:var(--shou)}
+
+/* 神明 */
+.gods{display:grid;grid-template-columns:repeat(auto-fill,minmax(9rem,1fr));gap:1rem;margin:1.2rem 0 .6rem}
+.god{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:7.5rem;padding:1rem;background:var(--white);border:1px solid var(--line);border-radius:var(--r)}
+.god-name{font-family:var(--serif);font-size:1.2rem;font-weight:700;letter-spacing:.2em;color:var(--wood)}
+.god small{color:var(--muted)}
+.god.main{grid-column:span 2;background:linear-gradient(160deg,#7d201b,#9e2b25);border-color:var(--glaze)}
+.god.main .god-name{color:#f6e2b0;font-size:1.6rem}
+.god.main small{color:var(--gold-2)}
+
+/* 服務 */
+.services{list-style:none;padding:0;margin:1.2rem 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.services .card{border-top:5px solid var(--glaze)}
+
+/* 參拜資訊 */
+.visit{background:linear-gradient(160deg,var(--shou-d),var(--shou));color:#fff}
+.visit h2{color:#fff}
+.info{display:grid;grid-template-columns:auto 1fr;gap:.4rem 1.2rem;margin:1rem 0 1.4rem}
+.info dt{color:var(--gold-2);font-weight:700}
+.info dd{margin:0}
+.info a{color:#fff}
+.route{color:var(--ink)}
+
+/* 頁尾 */
+.foot{background:var(--wood);color:#efe5d6;padding:2.4rem 0;text-align:center}
+.foot-name{font-family:var(--serif);font-size:1.1rem;letter-spacing:.2em}
+.muted-light{color:#cbbda9}
+
+/* 手機 */
+@media (max-width:860px){
+  .nav{display:none}
+  .size{margin-left:auto}
+  .two,.services{grid-template-columns:1fr}
+  .timeline li{grid-template-columns:1fr;gap:.2rem}
+  .god.main{grid-column:1/-1}
+  .hero{min-height:560px}
+  .hero-sky{opacity:.75}
+  .hero-sky .stars{display:none}
+  .brand-name{white-space:nowrap;font-size:1.05rem}
+  .size button{min-width:40px}
+  h2{font-size:1.6rem}
+}
+@media print{.top,.hero-sky,.size,.notice{display:none}.hero{min-height:0;color:var(--ink);background:none}.hero h1{color:var(--ink);text-shadow:none}}
