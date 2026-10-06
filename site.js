@@ -33,6 +33,23 @@
   addEventListener('scroll', onScroll, { passive: true }); onScroll();
 })();
 
+/* 複製地址（給要貼到 LINE 或導航 App 的長輩） */
+(() => {
+  const b = document.getElementById('copy-addr'), msg = document.getElementById('copy-msg');
+  if (!b) return;
+  b.addEventListener('click', async () => {
+    const t = b.dataset.addr;
+    try { await navigator.clipboard.writeText(t); msg.textContent = '已複製地址：' + t; }
+    catch { msg.textContent = '無法自動複製，請長按選取：' + t; }
+    clearTimeout(b._t); b._t = setTimeout(() => { msg.textContent = ''; }, 6000);
+  });
+})();
+
+/* 常見問題：同時只展開一題，方便閱讀 */
+for (const d of document.querySelectorAll('.faq details')) d.addEventListener('toggle', () => {
+  if (d.open) for (const o of document.querySelectorAll('.faq details[open]')) if (o !== d) o.open = false;
+});
+
 /* 農曆：今日農曆與近期節日（使用瀏覽器內建中國曆，不需外部資料） */
 (() => {
   let fmt;
@@ -55,14 +72,16 @@
   /* 節日：農曆月日（神明聖誕依民間通行日期，待本宮確認） */
   const FEASTS = [
     [1, 1, '春節・新春祈福', '新年開廟，祈求闔家平安。'],
+    [1, 6, '清水祖師聖誕', ''],
     [1, 9, '玉皇上帝聖誕', '天公生。'],
     [1, 15, '元宵・上元天官大帝聖誕', '元宵節，點燈祈福。'],
     [2, 2, '福德正神聖誕', '土地公生。'],
+    [2, 3, '文昌帝君聖誕', '祈求學業順利。'],
     [3, 23, '天上聖母聖誕', '媽祖聖誕，各地友宮與信眾前來祝壽。', true],
     [5, 5, '端午節', ''],
     [7, 15, '中元節', '中元普渡。'],
     [8, 15, '中秋節', ''],
-    [9, 9, '天上聖母得道紀念日', '重陽，媽祖羽化昇天之日。', true],
+    [9, 9, '天上聖母得道紀念日', '重陽，媽祖羽化昇天之日；同日為中壇元帥（太子爺）聖誕。', true],
     [12, 24, '送神', '恭送眾神上天述職。']
   ];
   /* 從今天起逐日往後找 400 天，取最近 5 個節日 */
